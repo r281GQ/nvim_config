@@ -3,7 +3,12 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 
--- if you just want default config for the servers then put them in a table
+-- This is for UFO Folding (LSP based folding).
+capabilities.textDocument.foldingRange = {
+  dynamicRegistration = false,
+  lineFoldingOnly = true,
+}
+
 local servers = { "html", "cssls", "tsserver", "clangd" }
 
 for _, lsp in ipairs(servers) do
@@ -12,6 +17,3 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
--- 
--- lspconfig.pyright.setup { blabla}
