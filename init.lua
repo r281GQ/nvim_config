@@ -5,3 +5,12 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+--
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.showmode = false
+vim.opt.swapfile = false
+vim.opt.scrolloff = 8
+
+vim.treesitter.language.register("markdown", "telekasten")

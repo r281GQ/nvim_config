@@ -1,8 +1,6 @@
 ---@type MappingsTable
 local M = {}
 
-vim.treesitter.language.register("markdown", "telekasten")
-
 M.disabled = {
   n = {
     ["<leader>dm"] = "",
