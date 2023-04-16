@@ -664,6 +664,15 @@ local plugins = {
 
       require("ufo").setup {
         close_fold_kinds = { "imports" },
+        provider_selector = function(_, filetype)
+          -- No LSP for markdown / telekasten, use treesitter based foldings.
+          if filetype == "telekasten" or filetype == "markdown" or filetype == "md" then
+            return { "treesitter", "indent" }
+          end
+
+          -- Otherwiser use LSP.
+          return { "lsp" }
+        end,
       }
     end,
   },

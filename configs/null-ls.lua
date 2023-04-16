@@ -18,11 +18,16 @@ local sources = {
 
   b.diagnostics.eslint_d,
 
-  -- Lua
+  -- Lua.
   b.formatting.stylua,
 
   -- Cpp.
   b.formatting.clang_format,
+
+  -- Rust formatter.
+  b.formatting.rustfmt.with {
+    extra_args = { "--edition=2021" },
+  },
 }
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
