@@ -19,6 +19,24 @@ M.disabled = {
 
 M.general = {
   n = {
+    -- Noop.
+    ["<up>"] = {
+      "<nop>",
+      "noop",
+    },
+    ["<down>"] = {
+      "<nop>",
+      "noop",
+    },
+    ["<left>"] = {
+      "<nop>",
+      "noop",
+    },
+    ["<right>"] = {
+      "<nop>",
+      "noop",
+    },
+
     -- Split navigation.
     ["<leader>wh"] = {
       "<C-w>h",
@@ -76,15 +94,35 @@ M.general = {
     ["<leader>td"] = { "<cmd>bw<CR>", "close current buffer", opts = { nowait = true } },
     ["<leader>tw"] = { "<CMD>%bd|e#|bd#<CR>", "close all buffers except current one", opts = { nowait = true } },
 
+    -- Diagnostic navigation.
+    ["<leader>d["] = {
+      "<cmd>lua vim.diagnostic.goto_prev()<CR>",
+      "go to prev diagnostic",
+    },
+
+    ["<leader>d]"] = {
+      "<cmd>lua vim.diagnostic.goto_next()<CR>",
+      "go to next diagnostic",
+    },
+
     -- Quickfix.
     ["<leader>cc"] = {
       ":cclose <CR>",
       "close quickfix",
     },
+    ["<leader>co"] = {
+      ":copen <CR>",
+      "open quickfix",
+    },
     ["<leader>cn"] = { "<cmd>cnext<CR>", "jump to next item in quickfix", opts = { nowait = true } },
     ["<leader>cp"] = { "<cmd>cprev<CR>", "jump to prev item in quickfix", opts = { nowait = true } },
+
     -- LocalList.
     ["<leader>lc"] = { ":lclose<CR>", "close local list", opts = { nowait = true } },
+    ["<leader>lo"] = {
+      ":lopen <CR>",
+      "open locallist",
+    },
     ["<leader>ln"] = { "<cmd>lnext<CR>", "jump to next item in locallist", opts = { nowait = true } },
     ["<leader>lp"] = { "<cmd>lprev<CR>", "jump to prev item in locallist", opts = { nowait = true } },
 
@@ -216,6 +254,31 @@ M.general = {
         vim.diagnostic.open_float()
       end,
       "show inline diagnostic",
+      opts = { nowait = true },
+    },
+
+    -- ToggleTerm.
+    ["<leader>nn"] = {
+      function()
+        require("utils.toggleterm").toggle_nnn()
+      end,
+      "toggle nnn",
+      opts = { nowait = true },
+    },
+
+    ["<leader>lg"] = {
+      function()
+        require("utils.toggleterm").toggle_lazy_git()
+      end,
+      "toggle nnn",
+      opts = { nowait = true },
+    },
+
+    ["<leader>btm"] = {
+      function()
+        require("utils.toggleterm").toggle_btm()
+      end,
+      "toggle nnn",
       opts = { nowait = true },
     },
   },
