@@ -37,12 +37,6 @@ M.general = {
       "go to top split",
     },
 
-    -- Quickfix.
-    ["<leader>cc"] = {
-      ":cclose <CR>",
-      "close quickfix",
-    },
-
     -- Tabs.
     ["<c-c>"] = {
       ":tabclose<CR>",
@@ -78,8 +72,21 @@ M.general = {
       "lsp go to definition",
     },
 
+    -- Buffers.
+    ["<leader>td"] = { "<cmd>bw<CR>", "close current buffer", opts = { nowait = true } },
+    ["<leader>tw"] = { "<CMD>%bd|e#|bd#<CR>", "close all buffers except current one", opts = { nowait = true } },
+
+    -- Quickfix.
+    ["<leader>cc"] = {
+      ":cclose <CR>",
+      "close quickfix",
+    },
+    ["<leader>cn"] = { "<cmd>cnext<CR>", "jump to next item in quickfix", opts = { nowait = true } },
+    ["<leader>cp"] = { "<cmd>cprev<CR>", "jump to prev item in quickfix", opts = { nowait = true } },
     -- LocalList.
     ["<leader>lc"] = { ":lclose<CR>", "close local list", opts = { nowait = true } },
+    ["<leader>ln"] = { "<cmd>lnext<CR>", "jump to next item in locallist", opts = { nowait = true } },
+    ["<leader>lp"] = { "<cmd>lprev<CR>", "jump to prev item in locallist", opts = { nowait = true } },
 
     -- Harpoon.
     ["<leader>.1"] = {
@@ -120,6 +127,15 @@ M.general = {
     },
 
     -- Telescope.
+    ["<leader>vc"] = {
+      function()
+        require("utils.telescope").find_in_dotfiles()
+      end,
+      "telescope - fuzzy find current buffer",
+      opts = {
+        nowait = true,
+      },
+    },
     ["<leader>/"] = {
       function()
         require("telescope.builtin").current_buffer_fuzzy_find { sorting_strategy = "ascending" }
@@ -160,11 +176,30 @@ M.general = {
     },
 
     -- Telekasten.
-    ["<leader>zz"] = {
+    ["<leader>jj"] = {
       function()
         require("telekasten").panel()
       end,
       "telekasten panel",
+      opts = { nowait = true },
+    },
+    ["<leader>jt"] = {
+      function()
+        require("telekasten").goto_today()
+      end,
+      "telekasten panel",
+      opts = { nowait = true },
+    },
+
+    -- Todo Comment.
+    ["<leader>tt"] = {
+      ": TodoTelescope keywords=TODO<CR>",
+      "todo telescope todo",
+      opts = { nowait = true },
+    },
+    ["<leader>tn"] = {
+      ": TodoTelescope keywords=NOTE<CR>",
+      "todo telescope note",
       opts = { nowait = true },
     },
 
