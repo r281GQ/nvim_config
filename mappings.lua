@@ -68,6 +68,14 @@ M.general = {
       "toggle Undotree",
     },
 
+    -- Config.
+    ["<leader>vc"] = {
+      function()
+        require("utils.config").get_configs()
+      end,
+      "get config files",
+    },
+
     -- Diffview.
     ["<leader>dm"] = {
       "<cmd> DiffviewOpen main<CR>",
@@ -162,17 +170,6 @@ M.general = {
     ["<c-i>"] = {
       "<cmd> lua require('harpoon.ui').nav_next()<CR>",
       "harpoon prev item",
-    },
-
-    -- Telescope.
-    ["<leader>vc"] = {
-      function()
-        require("utils.telescope").find_in_dotfiles()
-      end,
-      "telescope - fuzzy find current buffer",
-      opts = {
-        nowait = true,
-      },
     },
     ["<leader>/"] = {
       function()
@@ -296,9 +293,7 @@ M.general = {
   },
   v = {
     ["<leader>§"] = {
-      function()
-        require("Comment.api").toggle.linewise(vim.fn.visualmode())
-      end,
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "toggle comment",
     },
   },
