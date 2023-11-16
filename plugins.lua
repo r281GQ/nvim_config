@@ -726,6 +726,7 @@ local plugins = {
               + require("telescope.actions").open_qflist,
             ["<c-n>"] = require("telescope.actions").preview_scrolling_down,
             ["<c-p>"] = require("telescope.actions").preview_scrolling_up,
+            ["<c-h>"] = require("telescope.actions").select_horizontal,
           },
         },
       },
