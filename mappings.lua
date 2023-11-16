@@ -257,7 +257,7 @@ M.general = {
     -- ToggleTerm.
     ["<leader>nn"] = {
       function()
-        require("utils.toggleterm").toggle_nnn()
+        require("custom.utils.toggleterm").toggle_nnn()
       end,
       "toggle nnn",
       opts = { nowait = true },
@@ -265,7 +265,7 @@ M.general = {
 
     ["<leader>lg"] = {
       function()
-        require("utils.toggleterm").toggle_lazy_git()
+        require("custom.utils.toggleterm").toggle_lazy_git()
       end,
       "toggle nnn",
       opts = { nowait = true },
@@ -273,7 +273,7 @@ M.general = {
 
     ["<leader>btm"] = {
       function()
-        require("utils.toggleterm").toggle_btm()
+        require("custom.utils.toggleterm").toggle_btm()
       end,
       "toggle nnn",
       opts = { nowait = true },
