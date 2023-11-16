@@ -9,7 +9,7 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
-local servers = { "html", "cssls", "tsserver", "clangd" }
+local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "grammarly" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -20,11 +20,17 @@ end
 
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
+  capabilities = capabilities,
   settings = {
     ["rust-analyzer"] = {
       imports = { granularity = { group = "module" }, prefix = "self" },
-      cargo = { buildScripts = { enable = true } },
       procMacro = { enable = true },
     },
+  },
+  cmd = {
+    "rustup",
+    "run",
+    "stable",
+    "rust-analyzer",
   },
 }

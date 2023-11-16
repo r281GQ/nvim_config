@@ -13,6 +13,7 @@ local sources = {
       "javascriptreact",
       "typescript",
       "typescriptreact",
+      "graphql",
     },
   },
 
@@ -23,6 +24,8 @@ local sources = {
 
   -- Cpp.
   b.formatting.clang_format,
+  b.formatting.goimports,
+  b.diagnostics.actionlint,
 
   -- Rust formatter.
   b.formatting.rustfmt.with {
