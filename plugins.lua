@@ -655,15 +655,14 @@ local plugins = {
       },
     },
     config = function()
-      -- Fold options
+      -- Fold options.
       vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
-      vim.o.foldcolumn = "1" -- '0' is not bad
-      vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+      vim.o.foldcolumn = "1"
+      vim.o.foldlevel = 99
       vim.o.foldlevelstart = 99
       vim.o.foldenable = true
 
       require("ufo").setup {
-        close_fold_kinds = { "imports" },
         provider_selector = function(_, filetype)
           -- No LSP for markdown / telekasten, use treesitter based foldings.
           if filetype == "telekasten" or filetype == "markdown" or filetype == "md" then
