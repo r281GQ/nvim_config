@@ -2,6 +2,7 @@ local M = {}
 
 M.treesitter = {
   ensure_installed = {
+    "astro",
     "vim",
     "lua",
     "html",

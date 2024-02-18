@@ -7,12 +7,14 @@ local sources = {
   b.formatting.prettierd.with {
     filetypes = {
       "html",
+      "astro",
       "markdown",
       "css",
       "javascript",
       "javascriptreact",
       "typescript",
       "typescriptreact",
+      "graphql",
       "graphql",
     },
   },

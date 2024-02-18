@@ -18,8 +18,6 @@ vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
-vim.treesitter.language.register("markdown", "telekasten")
-
 -- adding return sign
 vim.api.nvim_command "set listchars=eol:⏎"
 vim.api.nvim_command "set list"

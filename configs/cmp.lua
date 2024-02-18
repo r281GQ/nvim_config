@@ -11,12 +11,12 @@ options.mapping = {
 }
 
 options.sources = {
-  { name = "luasnip" },
   -- Always show language server protocol based items on top.
   { name = "nvim_lsp", priority = 8 },
   { name = "buffer" },
   { name = "nvim_lua" },
   { name = "path" },
+  { name = "luasnip" },
 }
 
 return options

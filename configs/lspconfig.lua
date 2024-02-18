@@ -18,6 +18,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+lspconfig.astro.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+--
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,

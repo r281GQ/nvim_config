@@ -13,7 +13,7 @@ M.disabled = {
     ["<C-l>"] = "",
   },
   v = {
-    [">"] = { ">gv", "indent"},
+    [">"] = { ">gv", "indent" },
   },
 }
 
@@ -87,17 +87,17 @@ M.general = {
     },
 
     -- LSP.
-    ["gd"] = {
-      function()
-        if vim.bo.filetype == "markdown" or vim.bo.filetype == "telekasten" then
-          require("telekasten").follow_link()
-        else
-          vim.lsp.buf.definition()
-        end
-      end,
-      "lsp go to definition",
-    },
-
+    -- ["gd"] = {
+    --   function()
+    --     if vim.bo.filetype == "markdown" or vim.bo.filetype == "telekasten" then
+    --       require("telekasten").follow_link()
+    --     else
+    --       vim.lsp.buf.definition()
+    --     end
+    --   end,
+    --   "lsp go to definition",
+    -- },
+    --
     -- Buffers.
     ["<leader>td"] = { "<cmd>bw<CR>", "close current buffer", opts = { nowait = true } },
     ["<leader>tw"] = { "<CMD>%bd|e#|bd#<CR>", "close all buffers except current one", opts = { nowait = true } },
@@ -210,21 +210,32 @@ M.general = {
       },
     },
 
-    -- Telekasten.
-    ["<leader>jj"] = {
+    ["<leader>lm"] = {
       function()
-        require("telekasten").panel()
+        require("zen-mode").toggle {
+          window = {
+            width = 0.35, -- width will be 85% of the editor width
+          },
+        }
       end,
-      "telekasten panel",
-      opts = { nowait = true },
+      "zen mode",
     },
-    ["<leader>jt"] = {
-      function()
-        require("telekasten").goto_today()
-      end,
-      "telekasten panel",
-      opts = { nowait = true },
-    },
+
+    -- -- Telekasten.
+    -- ["<leader>jj"] = {
+    --   function()
+    --     require("telekasten").panel()
+    --   end,
+    --   "telekasten panel",
+    --   opts = { nowait = true },
+    -- },
+    -- ["<leader>jt"] = {
+    --   function()
+    --     require("telekasten").goto_today()
+    --   end,
+    --   "telekasten panel",
+    --   opts = { nowait = true },
+    -- },
 
     -- Todo Comment.
     ["<leader>tt"] = {
@@ -303,7 +314,7 @@ M.lspconfig = {
   n = {
     ["<leader>rn"] = {
       function()
-        require("nvchad_ui.renamer").open()
+        require("nvchad.renamer").open()
       end,
       "lsp rename",
     },
