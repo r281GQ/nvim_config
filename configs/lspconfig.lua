@@ -9,7 +9,7 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
-local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "grammarly" }
+local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "grammarly", "bashls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
