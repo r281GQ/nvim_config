@@ -16,6 +16,7 @@ local sources = {
       "typescriptreact",
       "graphql",
       "graphql",
+      "json",
     },
   },
 
@@ -26,13 +27,13 @@ local sources = {
 
   -- Cpp.
   b.formatting.clang_format,
+
+  -- Golang.
   b.formatting.goimports,
+
   b.diagnostics.actionlint,
 
-  -- Rust formatter.
-  b.formatting.rustfmt.with {
-    extra_args = { "--edition=2021" },
-  },
+  -- SH.
   b.formatting.beautysh,
 }
 

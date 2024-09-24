@@ -9,7 +9,7 @@ capabilities.textDocument.foldingRange = {
   lineFoldingOnly = true,
 }
 
-local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "grammarly", "bashls" }
+local servers = { "html", "cssls", "tsserver", "clangd", "gopls", "ltex", "bashls", "terraformls", "astro", "jsonls" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -17,25 +17,3 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
-lspconfig.astro.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
---
-lspconfig.rust_analyzer.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    ["rust-analyzer"] = {
-      imports = { granularity = { group = "module" }, prefix = "self" },
-      procMacro = { enable = true },
-    },
-  },
-  cmd = {
-    "rustup",
-    "run",
-    "stable",
-    "rust-analyzer",
-  },
-}

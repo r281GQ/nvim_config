@@ -14,14 +14,19 @@ M.treesitter = {
     "markdown",
     "markdown_inline",
     "graphql",
+    "terraform",
   },
   indent = {
     enable = true,
-    -- disable = {
-    --   "python"
-    -- },
   },
 }
+-- require("nvim-treesitter.configs").setup {
+--   ensure_installed = { "astro", "tsx", "typescript", "html" },
+--   auto_install = true,
+--   highlight = {
+--     enable = true,
+--   },
+-- }
 
 M.mason = {
   ensure_installed = {
@@ -39,6 +44,15 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- grammaer checker
+    "ltex",
+
+    "gopls",
+
+    "terraformls",
+
+    "astro",
   },
 }
 
